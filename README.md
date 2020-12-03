@@ -21,7 +21,7 @@ After you cloned the git repository, go inside the main project folder and execu
 the application: 
 
 ```bash
-docker-compose up
+docker-compose up --build
 ```
 
 ## Local Usage

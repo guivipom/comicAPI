@@ -55,9 +55,9 @@ public class XkcdServiceImpl implements XkcdService {
     public List<ComicCompilation> getCompilation(Integer limit) {
         List<ComicCompilation> comicCompilation = new ArrayList<>();
         List<Xkcd> comicsXkcd = new ArrayList<>(getComics(limit));
-        ComicCompilation comic = new ComicCompilation();
 
         comicsXkcd.stream().forEach((comicXkcd) -> {
+            ComicCompilation comic = new ComicCompilation();
             LocalDate published = LocalDate.of( Integer.valueOf(comicXkcd.getYear()),
                                                 Integer.valueOf(comicXkcd.getMonth()),
                                                 Integer.valueOf(comicXkcd.getDay()));

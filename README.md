@@ -13,7 +13,7 @@ On this repository I created an API using JAVA and SPRING, that allows the users
  * Get summarize data compiled from xkcd and poorlydrawlines
  * ...
 
-I deployed the application in Heroku, so you can interact with the API here: 
+I deployed the application in Heroku, so you can interact with the API here: https://challenge-comic.herokuapp.com/
 
 ## Local Installation
 
@@ -25,12 +25,18 @@ docker-compose up
 ```
 
 ## Local Usage
-The application is running on localhost:8080, so you will need to  
+The application is running on localhost:8080, so you will need to append your request to this path. 
 
 ## Get compilation
 #Request
 `GET /compilation`
 
-## Get compilation
+## Get xkcd comics
+#Request
 
-`GET /compilation`
+`GET /xkcd/comics`
+
+## Get xkcd last comic
+#Request
+
+`GET /xkcd/lastcomic`

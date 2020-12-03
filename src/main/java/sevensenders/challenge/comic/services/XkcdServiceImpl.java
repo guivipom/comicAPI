@@ -21,14 +21,14 @@ public class XkcdServiceImpl implements XkcdService {
     @Override
     public Xkcd getLastComic() {
         Xkcd lastComic = restTemplate.getForObject("https://xkcd.com/info.0.json", Xkcd.class);
-        lastComic.setLink("https://xkcd.com/"+ lastComic.getNum() +"/info.0.json");
+        lastComic.setLink("https://xkcd.com/"+ lastComic.getNum());
         return  lastComic;
     }
 
     @Override
     public Xkcd getComicByNum(Integer num) {
         Xkcd comicByNum =restTemplate.getForObject("https://xkcd.com/" +num+"/info.0.json", Xkcd.class);
-        comicByNum.setLink("https://xkcd.com/"+ num +"/info.0.json");
+        comicByNum.setLink("https://xkcd.com/"+ num);
         return comicByNum;
     }
 

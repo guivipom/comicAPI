@@ -28,7 +28,7 @@ public class XkcdServiceImplTest {
     @Test
     public void getLastComic() {
         Xkcd comic = xkcdService.getLastComic();
-        assertEquals("https://xkcd.com/"+ comic.getNum() +"/info.0.json", comic.getLink());
+        assertEquals("https://xkcd.com/"+ comic.getNum() , comic.getLink());
     }
 
     @Test

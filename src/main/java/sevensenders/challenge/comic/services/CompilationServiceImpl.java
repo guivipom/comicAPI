@@ -16,6 +16,6 @@ public class CompilationServiceImpl implements CompilationService {
 
     @Override
     public List<ComicCompilation> getComics(Integer limit) {
-        return null;
+        return xkcdService.getCompilation(limit);
     }
 }

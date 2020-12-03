@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import sevensenders.challenge.api.domain.ComicCompilation;
@@ -20,6 +21,9 @@ public class XkcdServiceImplTest {
     @Autowired
     XkcdService xkcdService;
 
+    @Value("${xkcd.domain}")
+    String domain;
+
     @Before
     public void setUp() throws Exception {
 
@@ -28,7 +32,7 @@ public class XkcdServiceImplTest {
     @Test
     public void getLastComic() {
         Xkcd comic = xkcdService.getLastComic();
-        assertEquals("https://xkcd.com/"+ comic.getNum() , comic.getLink());
+        assertEquals(domain+ comic.getNum() , comic.getLink());
     }
 
     @Test

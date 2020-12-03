@@ -1,5 +1,6 @@
 package sevensenders.challenge.comic.services;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import sevensenders.challenge.api.domain.ComicCompilation;
@@ -13,22 +14,26 @@ import java.util.List;
 public class XkcdServiceImpl implements XkcdService {
 
     private RestTemplate restTemplate;
+    private final String Domain;
+    private final String Request;
 
-    public XkcdServiceImpl(RestTemplate restTemplate) {
+    public XkcdServiceImpl(RestTemplate restTemplate, @Value("${xkcd.domain}") String Domain, @Value("${xkcd.request}") String Request) {
         this.restTemplate = restTemplate;
+        this.Domain = Domain;
+        this.Request = Request;
     }
 
     @Override
     public Xkcd getLastComic() {
-        Xkcd lastComic = restTemplate.getForObject("https://xkcd.com/info.0.json", Xkcd.class);
-        lastComic.setLink("https://xkcd.com/"+ lastComic.getNum());
+        Xkcd lastComic = restTemplate.getForObject(Domain+Request, Xkcd.class);
+        lastComic.setLink(Domain+ lastComic.getNum());
         return  lastComic;
     }
 
     @Override
     public Xkcd getComicByNum(Integer num) {
-        Xkcd comicByNum =restTemplate.getForObject("https://xkcd.com/" +num+"/info.0.json", Xkcd.class);
-        comicByNum.setLink("https://xkcd.com/"+ num);
+        Xkcd comicByNum =restTemplate.getForObject(Domain + num + Request, Xkcd.class);
+        comicByNum.setLink(Domain + num);
         return comicByNum;
     }
 

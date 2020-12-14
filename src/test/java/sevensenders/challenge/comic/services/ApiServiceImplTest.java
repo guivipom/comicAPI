@@ -26,7 +26,7 @@ public class ApiServiceImplTest {
 
     @Test
     public void getCompilation() {
-        List<ComicCompilation> comics = compilationService.getComics(2);
-        assertEquals(2, comics.size());
+        List<ComicCompilation> comics = compilationService.getComics(10);
+        assertEquals(20, comics.size());
     }
 }

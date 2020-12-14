@@ -60,7 +60,7 @@ public class ComicControllerTest {
 
         List<ComicCompilation> ListInController = argumentCaptor.getValue();
 
-        assertEquals(1, ListInController.size());
+        assertEquals(2, ListInController.size());
     }
 
 }

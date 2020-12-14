@@ -1,10 +1,11 @@
 package sevensenders.challenge.api.domain;
 
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Xkcd {
+public class Xkcd implements Serializable {
 
     private String month;
     private Integer num;

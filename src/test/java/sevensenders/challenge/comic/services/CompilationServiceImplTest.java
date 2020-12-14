@@ -9,6 +9,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 import sevensenders.challenge.api.domain.ComicCompilation;
 import sevensenders.challenge.api.domain.Xkcd;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -18,7 +20,7 @@ import static org.junit.Assert.*;
 public class CompilationServiceImplTest {
 
     @Autowired
-    private XkcdService xkcdService;
+    private CompilationService compilationService;
 
     @Before
     public void setUp() throws Exception {
@@ -26,7 +28,17 @@ public class CompilationServiceImplTest {
 
     @Test
     public void getComics() {
-        List<ComicCompilation> comics = xkcdService.getCompilation(2);
-        assertEquals(2, comics.size());
+        List<ComicCompilation> comics = compilationService.getComics(10);
+
+        LocalDate previousTime = comics.iterator().next().getPublished();
+
+        assertEquals(20, comics.size());
+
+        for (ComicCompilation comic : comics) {
+            assertTrue( previousTime.compareTo(comic.getPublished()) >=0 );
+            previousTime = comic.getPublished();
+            }
+
+
     }
 }

@@ -2,14 +2,12 @@
 
 
 On this repository I created an API using JAVA and SPRING, that allows the users to retrieve json Data from different
- online webcomics such us https://xkcd.com/ or http://www.poorlydrawnlines.com. Currently the API is still in development
- and only allows to retrieve data from xkcd and summarize data with the most important fields:
+online webcomics such us https://xkcd.com/ or http://www.poorlydrawnlines.com. Currently the API allows to retrieve 
+data from xkcd specifically and compile data from both xkcd and PoorlyDrawnLines with the most important fields:
 
- * Get compiled summarize data (only from xkcd)
+ * Get compiled summarize data from xkcd
  * Get multiple comics from xkcd
  * Get xkcd latest comic
- 
- ToDo
  * Get summarize data compiled from xkcd and poorlydrawlines
  * ...
 
